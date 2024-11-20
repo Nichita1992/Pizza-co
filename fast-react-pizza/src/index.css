@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  scrollbar-gutter: stable both-edges;
+} */
+/*
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 32px;
+  height: 100dvh;
+} */
+
+/* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+
+@layer base {
+  ::-webkit-scrollbar-thumb {
+    @apply bg-transparent shadow-sm;
+  }
+  ::-webkit-scrollbar {
+    @apply w-2 bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-none bg-zinc-300/*color trackbar*/;
+  }
+  .input {
+    @apply rounded-full px-3 h-[40px] border border-zinc-500  transition-all duration-100 focus:ring focus:outline-none focus:border-0 focus:ring-yellow-400 focus:ring-offset-2 w-full;
+  }
+  .button {
+    @apply bg-yellow-400 text-zinc-800 font-bold p-2 hover:bg-yellow-300 focus:ring focus:outline-none focus:ring-yellow-400 focus:ring-offset-2 transition-colors tracking-wide uppercase rounded-[50px] disabled:text-zinc-300 disabled:bg-zinc-200;
+  }
+
+  .loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(theme(colors.zinc.700) 0 0);
+    background:
+      var(--c) 0% 50%,
+      var(--c) 50% 50%,
+      var(--c) 100% 50%;
+    background-size: 20% 50%;
+    animation: loading 1s infinite linear;
+  }
+
+  @keyframes loading {
+    20% {
+      background-position:
+        0% 0%,
+        50% 50%,
+        100% 50%;
+    }
+    40% {
+      background-position:
+        0% 100%,
+        50% 0%,
+        100% 50%;
+    }
+    60% {
+      background-position:
+        0% 50%,
+        50% 100%,
+        100% 0%;
+    }
+    80% {
+      background-position:
+        0% 50%,
+        50% 50%,
+        100% 100%;
+    }
+  }
+}
